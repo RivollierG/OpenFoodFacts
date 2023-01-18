@@ -1,33 +1,8 @@
-import tensorflow as tf
-
-physical_devices = tf.config.experimental.list_physical_devices('GPU')
-if len(physical_devices) > 0:
-   tf.config.experimental.set_memory_growth(physical_devices[0], True)
-
 # for loading/processing the images  
-from keras.preprocessing.image import load_img 
-from keras.preprocessing.image import img_to_array 
-from keras.applications.vgg16 import preprocess_input 
-
-# models 
-from keras.applications.vgg16 import VGG16 
-from keras.models import Model
-
-# clustering and dimension reduction
-from sklearn.cluster import KMeans
-from sklearn.cluster import DBSCAN
-from sklearn.neighbors import NearestNeighbors
-from sklearn.decomposition import PCA
-
-# for everything else
-import os
-import numpy as np
 import matplotlib.pyplot as plt
-from random import randint
-import pandas as pd
-import pickle
-
-from tqdm import tqdm
+import numpy as np
+from keras.applications.vgg16 import preprocess_input
+from keras.preprocessing.image import load_img
 
 
 def extract_features(file, model):
